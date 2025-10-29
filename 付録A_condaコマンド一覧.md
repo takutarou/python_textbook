@@ -138,34 +138,28 @@ conda env create -f C:\Users\username\Documents\environment.yml
 ### パッケージをインストールする
 
 ```bash
-# 基本形
-conda install パッケージ名
+# 基本形（conda-forgeチャンネルを推奨）
+conda install -c conda-forge パッケージ名
 
 # 例
-conda install pandas
+conda install -c conda-forge pandas
 ```
+
+**重要：** ライセンスの問題を避けるため、基本的に `-c conda-forge` を付けてください。
 
 **複数のパッケージを一度にインストール：**
 ```bash
-conda install pandas numpy matplotlib
+conda install -c conda-forge pandas numpy matplotlib
 ```
 
 **特定のバージョンを指定：**
 ```bash
-conda install pandas=2.0.0
-```
-
-**conda-forgeチャンネルから：**
-```bash
-conda install -c conda-forge パッケージ名
-
-# 例
-conda install -c conda-forge openpyxl
+conda install -c conda-forge pandas=2.0.0
 ```
 
 **確認メッセージなしでインストール：**
 ```bash
-conda install pandas -y
+conda install -c conda-forge pandas -y
 ```
 
 ### パッケージをアンインストールする
@@ -488,7 +482,7 @@ conda create -n myproject python=3.11
 conda activate myproject
 
 # 3. 必要なパッケージをインストール
-conda install pandas numpy matplotlib
+conda install -c conda-forge pandas numpy matplotlib
 
 # 4. プロジェクトフォルダに移動
 cd C:\Users\username\Documents\python_projects\myproject
@@ -508,7 +502,7 @@ conda activate myproject
 cd C:\Users\username\Documents\python_projects\myproject
 
 # 9. 必要に応じてパッケージを追加
-conda install openpyxl
+conda install -c conda-forge openpyxl
 
 # 10. 作業終了
 conda deactivate
@@ -547,7 +541,7 @@ conda create -n 環境名 python=3.11
 conda activate 環境名
 
 # 4. パッケージインストール
-conda install パッケージ名
+conda install -c conda-forge パッケージ名
 
 # 5. パッケージ一覧
 conda list
@@ -574,17 +568,17 @@ conda --version
 
 ### やってはいけないこと
 
-❌ **base環境にパッケージをインストール**
+⚠️ **base環境へのパッケージインストールは注意**
 ```bash
-# これは避ける
+# 環境が混ざるとトラブルの元になるので注意
 (base) C:\Users\username> conda install pandas
 ```
 
-✅ **専用環境を作ってインストール**
+✅ **専用環境を作ってインストール（推奨）**
 ```bash
 conda create -n myproject python=3.11
 conda activate myproject
-conda install pandas
+conda install -c conda-forge pandas
 ```
 
 ❌ **通常のコマンドプロンプトを使う**
@@ -608,34 +602,12 @@ conda install pandas
 (myproject) C:\Users\username>  # ← これを確認してから作業
 ```
 
----
-
-## VS Codeでcondaを使う場合
-
-### VS Codeターミナルの初期化
-
-初回のみ実行：
-```bash
-conda init cmd.exe
-```
-
-VS Codeを再起動すると、ターミナルで自動的にcondaが使えるようになります。
-
-### VS Codeでの環境確認
-
-ターミナルを開いた時、プロンプトに環境名が表示されることを確認：
-```bash
-(myproject) PS C:\Users\username\Documents\python_projects\myproject>
-```
-
----
-
 ## まとめ
 
 **最も重要なコマンド：**
 1. `conda env list` - 環境一覧
 2. `conda activate 環境名` - 環境有効化
-3. `conda install パッケージ名` - パッケージ追加
+3. `conda install -c conda-forge パッケージ名` - パッケージ追加
 4. `conda list | findstr パッケージ名` - パッケージ検索
 
 **困った時：**

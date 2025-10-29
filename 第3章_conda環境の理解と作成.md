@@ -368,7 +368,7 @@ VS Codeでは、ターミナルとは別に「どのPython環境を使うか」�
 #### ステップ1：インタープリタの選択画面を開く
 
 方法1：**コマンドパレットから**
-1. `Ctrl + Shift + P`（Mac: `Cmd + Shift + P`）を押す
+1. `Ctrl + Shift + P` を押す
 2. `Python: Select Interpreter` と入力して選択
 
 方法2：**ステータスバーから**
@@ -408,16 +408,9 @@ Python 3.10.0 64-bit
 
 まず、プロジェクト用のフォルダを作成します。
 
-**Windowsの場合（Anaconda Prompt）：**
+**Anaconda Promptで実行：**
 ```bash
 cd %USERPROFILE%\Documents\python_projects
-mkdir data_analysis_project
-cd data_analysis_project
-```
-
-**Macの場合（ターミナル）：**
-```bash
-cd ~/Documents/python_projects
 mkdir data_analysis_project
 cd data_analysis_project
 ```
@@ -482,7 +475,7 @@ print("\nConda environment:")
 print(sys.prefix)
 ```
 
-4. ファイルを保存（`Ctrl + S` / `Cmd + S`）
+4. ファイルを保存（`Ctrl + S`）
 5. 実行する：
    - 方法1：右上の再生ボタン（▶）をクリック
    - 方法2：ターミナルで `python test.py` と入力
